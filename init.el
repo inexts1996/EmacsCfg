@@ -50,7 +50,7 @@
 (require 'org)
 (setq org-src-fontify-natively t)
 (setq inhibit-splash-screen t)
-(setq make-backup-files nil)
+
 ;;recent file
 (require 'recentf)
 (recentf-mode 1)
@@ -91,6 +91,11 @@
 
 (setq org-agenda-files '("~/org"))
 (global-set-key (kbd "C-c a")'org-agenda)
+(global-auto-composition-mode t)
+
+;;disable auto-save and auto-backup
+(setq make-backup-files nil)
+(setq auto-save-default nil)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;                        function                          ;;;;
 ;;;;                                                          ;;;;
