@@ -43,7 +43,6 @@
 (ivy-mode t)
 (setq ivy-use-virtual-buffers 1)
 
-(require 'smartparens-config)
 ;;(add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
 (smartparens-global-mode t)
 

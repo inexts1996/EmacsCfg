@@ -7,24 +7,21 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp-config/")
 (require 'init-packages)
+(require 'init-ui)
 
 (setq ring-bell-function 'ingnore)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+
 (global-linum-mode 1)
-(global-hl-line-mode t)
+
 (delete-selection-mode t) 
 (require 'org)
 (setq org-src-fontify-natively t)
-(setq inhibit-splash-screen t)
 
 ;;recent file
 (require 'recentf)
 (recentf-mode 1)
 (setq recntf-max-menu-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
-;;full screen
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
 
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
