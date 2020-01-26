@@ -14,4 +14,7 @@
 (global-set-key (kbd "<f2>") 'open-my-init-file)
 (global-set-key (kbd "<f6>") 'ivy-resume)
 
+(global-set-key (kbd "C-c p f") 'counsel-git)
+(global-set-key (kbd "C-c a")'org-agenda)
+
 (provide 'init-keybindings)
