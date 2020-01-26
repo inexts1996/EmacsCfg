@@ -3,48 +3,15 @@
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (package-initialize)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-    )
+;; You may delete these explanatory comments.)
 
-(require 'cl)
-(defvar inexts/packages '(
-			  company
-			  material-theme
-			  hungry-delete
-			  helm
-			  ;;async
-			  ;;Flycheck
-			  swiper
-			  counsel
-			  smartparens
-			  js2-mode
-			  ) "Default packages")
+(add-to-list 'load-path "~/.emacs.d/lisp-config/")
+(require 'init-packages)
 
-(setq package-selected-packages inexts/packages)
-(defun inexts/packages-installed-p()
-  (loop for pkg in inexts/packages
-	when (not (package-installed-p pkg)) do (return nil)
-	finally (return t)
-	)
-  )
-
-(unless (inexts/packages-installed-p)
-  (message "%s" "Refreshing package database...")
-  (package-refresh-contents)
-  (dolist (pkg inexts/packages)
-    (when (not (package-installed-p pkg))
-    (package-install pkg)
-    )
-   )
-  )
+(setq ring-bell-function 'ingnore)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (global-linum-mode 1)
-(global-company-mode t)
 (global-hl-line-mode t)
 (delete-selection-mode t) 
 (require 'org)
@@ -61,13 +28,6 @@
 
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
-(load-theme 'material t)
-
-(require 'hungry-delete)
-(global-hungry-delete-mode)
-
-(ivy-mode t)
-(setq ivy-use-virtual-buffers 1)
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
@@ -76,14 +36,6 @@
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
 
-(require 'smartparens-config)
-;;(add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
-(smartparens-global-mode t)
-
-(setq auto-mode-alist
-      (append
-       '(("\\.js\\'" . js2-mode))
-       auto-mode-alist))
 
 (global-set-key (kbd "C-h C-f") 'find-function)
 (global-set-key (kbd "C-h C-v") 'find-variable)
@@ -96,6 +48,12 @@
 ;;disable auto-save and auto-backup
 (setq make-backup-files nil)
 (setq auto-save-default nil)
+
+(abbrev-mode t)
+(define-abbrev-table 'global-abbrev-table '(
+					    ("8nx" "inexts")
+					    ("8ms" "Macrosoft")
+					    ))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;                        function                          ;;;;
 ;;;;                                                          ;;;;

@@ -1,0 +1,60 @@
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+    )
+
+(require 'cl)
+(defvar inexts/packages '(
+			  company
+			  material-theme
+			  hungry-delete
+			  helm
+			  ;;async
+			  ;;Flycheck
+			  swiper
+			  counsel
+			  smartparens
+			  js2-mode
+			  popwin
+			  ) "Default packages")
+
+(setq package-selected-packages inexts/packages)
+(defun inexts/packages-installed-p()
+  (loop for pkg in inexts/packages
+	when (not (package-installed-p pkg)) do (return nil)
+	finally (return t)
+	)
+  )
+
+(unless (inexts/packages-installed-p)
+  (message "%s" "Refreshing package database...")
+  (package-refresh-contents)
+  (dolist (pkg inexts/packages)
+    (when (not (package-installed-p pkg))
+    (package-install pkg)
+    )
+   )
+  )
+
+(require 'hungry-delete)
+(global-hungry-delete-mode)
+
+(ivy-mode t)
+(setq ivy-use-virtual-buffers 1)
+
+(require 'smartparens-config)
+;;(add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
+(smartparens-global-mode t)
+
+(setq auto-mode-alist
+      (append
+       '(("\\.js\\'" . js2-mode))
+       auto-mode-alist))
+
+(require 'popwin)
+
+(popwin-mode t)
+(global-company-mode t)
+
+(load-theme 'material t)
