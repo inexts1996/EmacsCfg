@@ -5,11 +5,8 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.)
 
-(defun open-my-init-file()
-(interactive)
-(find-file "~/.emacs.d/init.el"))
-
 (add-to-list 'load-path "~/.emacs.d/lisp-config/")
+(require 'init-func)
 (require 'init-packages)
 (require 'init-ui)
 (require 'init-better-defaults)
