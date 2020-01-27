@@ -17,6 +17,7 @@
 			  smartparens
 			  js2-mode
 			  popwin
+			  neotree
 			  ) "Default packages")
 
 (setq package-selected-packages inexts/packages)
@@ -43,7 +44,6 @@
 (ivy-mode t)
 (setq ivy-use-virtual-buffers 1)
 
-(require 'smartparens-config)
 ;;(add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
 (smartparens-global-mode t)
 
@@ -58,3 +58,5 @@
 (global-company-mode t)
 
 (load-theme 'material t)
+
+(provide 'init-packages)

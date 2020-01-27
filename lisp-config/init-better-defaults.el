@@ -10,6 +10,27 @@
 (setq auto-save-default nil)
 
 (setq ring-bell-function 'ingnore)
+;;directory setq
+(setq dired-recursive-copies 'always)
+(setq dired-recursive-deletes 'always)
+(setq dired-dwim-target t)
+(put 'dired-find-alternate-file 'disabled nil)
+(require 'dired-x)
+
+(setq hippie-expand-try-functions-list
+      '(
+	try-expand-dabbrev
+	try-expand-dabbrev-all-buffers
+	try-expand-dabbrev-from-kill
+	try-complete-file-name-partially
+	try-complete-file-name
+	try-expand-all-abbrevs
+	try-expand-list
+	try-expand-line
+	try-complete-lisp-symbol-partially
+	try-complete-lisp-symbol
+	)
+      )
 
 (abbrev-mode t)
 (define-abbrev-table 'global-abbrev-table '(
@@ -20,5 +41,7 @@
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 (delete-selection-mode t)
+
+(fset 'yes-or-no-p 'y-or-n-p)
 
 (provide 'init-better-defaults)

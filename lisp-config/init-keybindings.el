@@ -16,5 +16,11 @@
 (global-set-key (kbd "<f3>") 'inexts-byte-recompile-directory)
 (global-set-key (kbd "C-c p f") 'counsel-git)
 (global-set-key (kbd "C-c a")'org-agenda)
+(global-set-key (kbd "C-M-/") 'hippie-expand)
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+
+(with-eval-after-load 'dired
+    (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
+    )
+
 (provide 'init-keybindings)
