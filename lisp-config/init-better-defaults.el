@@ -37,7 +37,11 @@
 					    ("8nx" "inexts")
 					    ("8ms" "Macrosoft")
 					    ))
-
+(define-advice show-paren-function(:around (fn) fix-show-paren-function)
+  (cond ((looking-at-p "\\s(")(funcall fn))
+	(t (save-excursion
+	     (ignore-errors (backward-up-list))
+	    (funcall fn)))))
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 (delete-selection-mode t)

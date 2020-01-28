@@ -5,6 +5,10 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.)
 
+;;(require 'org-install)
+;;(require 'ob-tangle)
+;;(org-babel-load-file (expand-file-name "inexts.org" user-emacs-directory))
+
 (add-to-list 'load-path "~/.emacs.d/lisp-config/")
 (require 'init-func)
 (require 'init-packages)
