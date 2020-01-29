@@ -21,6 +21,7 @@
 			  all-the-icons
 			  expand-region
 			  iedit
+			  org-pomodoro
 			  ) "Default packages")
 
 (setq package-selected-packages inexts/packages)
@@ -67,4 +68,7 @@
 (setq neo-theme (if(display-graphic-p)'icon 'arrow))
 
 (require 'all-the-icons)
+
+(require 'org-pomodoro)
+
 (provide 'init-packages)

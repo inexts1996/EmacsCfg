@@ -48,4 +48,6 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(set-language-environment "UTF-8")
+
 (provide 'init-better-defaults)

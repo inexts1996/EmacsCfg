@@ -21,6 +21,9 @@
 (global-set-key (kbd "M-s o") 'occur-dwim)
 (global-set-key (kbd "M-s i")'counsel-imenu)
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+;;org keybindings
+(global-set-key (kbd "C-c r") 'org-capture)
 (with-eval-after-load 'dired
     (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
     )
