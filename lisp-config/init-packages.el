@@ -17,6 +17,10 @@
 			  smartparens
 			  js2-mode
 			  popwin
+			  neotree
+			  all-the-icons
+			  expand-region
+			  iedit
 			  ) "Default packages")
 
 (setq package-selected-packages inexts/packages)
@@ -59,4 +63,8 @@
 
 (load-theme 'material t)
 
+(require 'neotree)
+(setq neo-theme (if(display-graphic-p)'icon 'arrow))
+
+(require 'all-the-icons)
 (provide 'init-packages)

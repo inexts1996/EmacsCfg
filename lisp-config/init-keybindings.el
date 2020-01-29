@@ -18,9 +18,14 @@
 (global-set-key (kbd "C-c a")'org-agenda)
 (global-set-key (kbd "C-M-/") 'hippie-expand)
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
-
+(global-set-key (kbd "M-s o") 'occur-dwim)
+(global-set-key (kbd "M-s i")'counsel-imenu)
+(global-set-key (kbd "C-=") 'er/expand-region)
 (with-eval-after-load 'dired
     (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
     )
+
+;;nerotree keybindings
+(global-set-key (kbd "<f8>")'neotree-toggle)
 
 (provide 'init-keybindings)
