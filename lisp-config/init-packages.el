@@ -1,3 +1,4 @@
+
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
@@ -11,7 +12,7 @@
 			  hungry-delete
 			  helm
 			  ;;async
-			  ;;Flycheck
+			  flycheck
 			  swiper
 			  counsel
 			  smartparens
@@ -22,6 +23,10 @@
 			  expand-region
 			  iedit
 			  org-pomodoro
+			  ;;C Sharp
+			  csharp-mode
+			  omnisharp
+			  yasnippet
 			  ) "Default packages")
 
 (setq package-selected-packages inexts/packages)
@@ -71,4 +76,12 @@
 
 (require 'org-pomodoro)
 
+;;CSharp settings
+(add-hook 'csharp-mode-hook 'omnisharp-mode)
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-omnisharp))
+(add-hook 'csharp-mode-hook #'company-mode)
+
+;;yas settings
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 (provide 'init-packages)

@@ -21,6 +21,7 @@
 (global-set-key (kbd "M-s o") 'occur-dwim)
 (global-set-key (kbd "M-s i")'counsel-imenu)
 (global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C-;") 'iedit-mode)
 
 ;;org keybindings
 (global-set-key (kbd "C-c r") 'org-capture)
@@ -30,5 +31,13 @@
 
 ;;nerotree keybindings
 (global-set-key (kbd "<f8>")'neotree-toggle)
+
+;;company keybindings
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous)
+  )
 
 (provide 'init-keybindings)
