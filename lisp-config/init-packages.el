@@ -2,7 +2,9 @@
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+  (setq package-archives '(("melpa" . "http://elpa.emacs-china.org/melpa/")
+			   ("gnu" . "http://elpa.emacs-china.org/gnu/")))
+  ;;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
     )
 
 (require 'cl)
@@ -27,6 +29,15 @@
 			  csharp-mode
 			  omnisharp
 			  yasnippet
+			  auto-yasnippet
+			  ;;evil
+			  evil
+			  evil-leader
+			  window-numbering
+			  evil-surround
+			  evil-nerd-commenter
+			  which-key
+			  use-package
 			  ) "Default packages")
 
 (setq package-selected-packages inexts/packages)
@@ -84,4 +95,11 @@
 
 ;;yas settings
 (add-hook 'prog-mode-hook #'yas-minor-mode)
+
+(require 'evil)
+(evil-mode t)
+
+(require 'which-key)
+(which-key-mode t)
+
 (provide 'init-packages)

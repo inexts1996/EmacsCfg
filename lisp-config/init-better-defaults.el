@@ -50,4 +50,5 @@
 
 (set-language-environment "UTF-8")
 
+(sp-local-pair 'emacs-lisp-mode "`" nil :actions nil)0
 (provide 'init-better-defaults)
